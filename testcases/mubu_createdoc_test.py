@@ -20,6 +20,36 @@ class TestCaseMubuCreatedoc(HttpRunner):
 
     teststeps = [
         Step(RunTestCase("mubu login").call(MubuLogin)),
+        Step(
+            RunRequest("/api/list/create_doc")
+            .post("https://mubu.com/api/list/create_doc")
+            .with_headers(
+                **{
+                    "Accept": "application/json, text/javascript, */*; q=0.01",
+                    "Accept-Encoding": "gzip, deflate, br",
+                    "Accept-Language": "zh-CN,zh;q=0.9",
+                    "Connection": "keep-alive",
+                    "Content-Length": "17",
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Host": "mubu.com",
+                    "Origin": "https://mubu.com",
+                    "Referer": "https://mubu.com/list",
+                    "Sec-Fetch-Dest": "empty",
+                    "Sec-Fetch-Mode": "cors",
+                    "Sec-Fetch-Site": "same-origin",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36",
+                    "X-Requested-With": "XMLHttpRequest",
+                }
+            )
+            .with_data({"folderId": "0", "type": "0"})
+            .extract()
+            .with_jmespath("body.data.id", "docId")
+            .validate()
+            .assert_equal("status_code", 200)
+            .assert_equal('headers."Content-Type"', "application/json;charset=UTF-8")
+            .assert_equal("body.code", 0)
+            .assert_equal("body.msg", None)
+        ),
     ]
 
 
