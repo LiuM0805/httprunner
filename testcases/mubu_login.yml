@@ -3,7 +3,9 @@ config:
     variables:
         user_phone: 18810143184
         password: lm920805
+        base_url: https://mubu.com
     verify: false
+
     export: ["user_persistence"]
 teststeps:
 -   name: /
@@ -21,9 +23,9 @@ teststeps:
             Sec-Fetch-User: ?1
             Upgrade-Insecure-Requests: '1'
             User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36
-                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36 HttpRunner/${get_httprunner_version()}
         method: GET
-        url: https://mubu.com/
+        url: $base_url/
     validate:
     -   eq:
         - status_code
@@ -46,9 +48,9 @@ teststeps:
             Sec-Fetch-User: ?1
             Upgrade-Insecure-Requests: '1'
             User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36
-                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36 HttpRunner/${get_httprunner_version()
         method: GET
-        url: https://mubu.com/login
+        url: $base_url/login
     validate:
     -   eq:
         - status_code
@@ -71,9 +73,9 @@ teststeps:
             Sec-Fetch-User: ?1
             Upgrade-Insecure-Requests: '1'
             User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36
-                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36 HttpRunner/${get_httprunner_version()
         method: GET
-        url: https://mubu.com/login/password
+        url: $base_url/login/password
     validate:
     -   eq:
         - status_code
@@ -101,10 +103,10 @@ teststeps:
             Sec-Fetch-Mode: cors
             Sec-Fetch-Site: same-origin
             User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36
-                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36 HttpRunner/${get_httprunner_version()
             X-Requested-With: XMLHttpRequest
         method: POST
-        url: https://mubu.com/api/login/submit
+        url: $base_url/api/login/submit
     extract:
         user_persistence: cookies.user_persistence
     validate:
@@ -135,9 +137,9 @@ teststeps:
             Sec-Fetch-User: ?1
             Upgrade-Insecure-Requests: '1'
             User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36
-                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36 HttpRunner/${get_httprunner_version()}
         method: GET
-        url: https://mubu.com/list
+        url: $base_url/list
     validate:
     -   eq:
         - status_code
@@ -161,10 +163,10 @@ teststeps:
             Sec-Fetch-Mode: cors
             Sec-Fetch-Site: same-origin
             User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36
-                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36 HttpRunner/${get_httprunner_version()}
             X-Requested-With: XMLHttpRequest
         method: POST
-        url: https://mubu.com/api/list/tip_new_update
+        url: $base_url/api/list/tip_new_update
     validate:
     -   eq:
         - status_code
@@ -199,10 +201,10 @@ teststeps:
             Sec-Fetch-Mode: cors
             Sec-Fetch-Site: same-origin
             User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36
-                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36 HttpRunner/${get_httprunner_version()}
             X-Requested-With: XMLHttpRequest
         method: POST
-        url: https://mubu.com/api/list/get
+        url: $base_url/api/list/get
     validate:
     -   eq:
         - status_code
@@ -232,10 +234,10 @@ teststeps:
             Sec-Fetch-Mode: cors
             Sec-Fetch-Site: same-origin
             User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36
-                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36
+                (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36 HttpRunner/${get_httprunner_version()}
             X-Requested-With: XMLHttpRequest
         method: POST
-        url: https://mubu.com/api/message/get_message_unread
+        url: $base_url/api/message/get_message_unread
     validate:
     -   eq:
         - status_code
