@@ -11,5 +11,10 @@ def sum_two(m, n):
     return m + n
 
 
+# 时间戳
+def get_request_id():
+    return f"HRUN-{int(time.time() * 1000)}"
+
+
 def sleep(n_secs):
     time.sleep(n_secs)
