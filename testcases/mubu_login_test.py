@@ -24,6 +24,7 @@ class TestCaseMubuLogin(HttpRunner):
             .get("$base_url/")
             .with_headers(
                 **{
+                    "X-Request-ID": "${get_request_id()}",
                     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
                     "Accept-Encoding": "gzip, deflate, br",
                     "Accept-Language": "zh-CN,zh;q=0.9",
@@ -47,6 +48,7 @@ class TestCaseMubuLogin(HttpRunner):
             .get("$base_url/login")
             .with_headers(
                 **{
+                    "X-Request-ID": "${get_request_id()}",
                     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
                     "Accept-Encoding": "gzip, deflate, br",
                     "Accept-Language": "zh-CN,zh;q=0.9",
@@ -70,6 +72,7 @@ class TestCaseMubuLogin(HttpRunner):
             .get("$base_url/login/password")
             .with_headers(
                 **{
+                    "X-Request-ID": "${get_request_id()}",
                     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
                     "Accept-Encoding": "gzip, deflate, br",
                     "Accept-Language": "zh-CN,zh;q=0.9",
@@ -93,6 +96,7 @@ class TestCaseMubuLogin(HttpRunner):
             .post("$base_url/api/login/submit")
             .with_headers(
                 **{
+                    "X-Request-ID": "${get_request_id()}",
                     "Accept": "application/json, text/javascript, */*; q=0.01",
                     "Accept-Encoding": "gzip, deflate, br",
                     "Accept-Language": "zh-CN,zh;q=0.9",
@@ -125,6 +129,7 @@ class TestCaseMubuLogin(HttpRunner):
             .get("$base_url/list")
             .with_headers(
                 **{
+                    "X-Request-ID": "${get_request_id()}",
                     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
                     "Accept-Encoding": "gzip, deflate, br",
                     "Accept-Language": "zh-CN,zh;q=0.9",
@@ -148,6 +153,7 @@ class TestCaseMubuLogin(HttpRunner):
             .post("$base_url/api/list/tip_new_update")
             .with_headers(
                 **{
+                    "X-Request-ID": "${get_request_id()}",
                     "Accept": "application/json, text/javascript, */*; q=0.01",
                     "Accept-Encoding": "gzip, deflate, br",
                     "Accept-Language": "zh-CN,zh;q=0.9",
@@ -175,6 +181,7 @@ class TestCaseMubuLogin(HttpRunner):
             .post("$base_url/api/list/get")
             .with_headers(
                 **{
+                    "X-Request-ID": "${get_request_id()}",
                     "Accept": "application/json, text/javascript, */*; q=0.01",
                     "Accept-Encoding": "gzip, deflate, br",
                     "Accept-Language": "zh-CN,zh;q=0.9",
@@ -203,6 +210,7 @@ class TestCaseMubuLogin(HttpRunner):
             .post("$base_url/api/message/get_message_unread")
             .with_headers(
                 **{
+                    "X-Request-ID": "${get_request_id()}",
                     "Accept": "application/json, text/javascript, */*; q=0.01",
                     "Accept-Encoding": "gzip, deflate, br",
                     "Accept-Language": "zh-CN,zh;q=0.9",
