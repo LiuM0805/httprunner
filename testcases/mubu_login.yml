@@ -30,7 +30,7 @@ teststeps:
     validate:
     -   eq:
         - status_code
-        - 200
+        - ${expected_status_code(100,100)}
     -   eq:
         - headers.Content-Type
         - text/html;charset=UTF-8

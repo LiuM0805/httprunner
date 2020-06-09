@@ -40,7 +40,7 @@ class TestCaseMubuLogin(HttpRunner):
                 }
             )
             .validate()
-            .assert_equal("status_code", 200)
+            .assert_equal("status_code", "${expected_status_code(100,100)}")
             .assert_equal('headers."Content-Type"', "text/html;charset=UTF-8")
         ),
         Step(
