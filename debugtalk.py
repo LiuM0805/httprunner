@@ -18,3 +18,7 @@ def get_request_id():
 
 def sleep(n_secs):
     time.sleep(n_secs)
+
+
+def expected_status_code(a, b):
+    return a + b
